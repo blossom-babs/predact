@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --fix --ext src",
-    "prettier" : "prettier --write src",
+    "prettier": "prettier --write src",
     "format": "npm run lint && npm run prettier",
+    "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" "
   },
   "keywords": [],
@@ -44,8 +45,8 @@
     "ts-node": "^10.8.0",
     "tsc-watch": "^5.0.3"
   },
-  "husky":{
-    "hooks":{
+  "husky": {
+    "hooks": {
       "pre-commit": "npm run format"
     }
   }
