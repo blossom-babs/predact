@@ -3,6 +3,7 @@ import indexRoute from "./handlers";
 
 const app: Application = express();
 const port = 8070;
+app.use(express.json())
 
 indexRoute(app)
 
