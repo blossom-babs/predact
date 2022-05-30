@@ -1,7 +1,10 @@
 import express, { Request, Response, Application } from "express";
+import indexRoute from "./handlers";
 
 const app: Application = express();
 const port = 8070;
+
+indexRoute(app)
 
 app.get("/", (req: Request, res: Response) => {
   res
