@@ -29,15 +29,22 @@ export class StudentStore {
     }
   }
 
-  async create(student: Student): Promise<Student> {
+  async create(student: Student): Promise<Student | string> {
     try {
       const conn = await client.connect()
       student.password = await bcrypt.hash(student.password + pepper, salt)
-      const sql = `INSERT INTO students (matric_no, password_digest) VALUES ($1, $2) RETURNING *`
-      const studentData = Object.values(student)
-      const result = await conn.query(sql, studentData)
-      conn.release()
-      return result.rows[0]
+      let studentMatric = student.matricNo
+      let findStudentInSchoolDB = `SELECT * FROM all_students WHERE matric_no='${studentMatric}'`
+      let studentQuery = await conn.query(findStudentInSchoolDB)
+      if (studentQuery.rows.length < 1) {
+        return `Student with matric ${studentMatric} does not exist`
+      } else {
+        const sql = `INSERT INTO students (matric_no, password_digest) VALUES ($1, $2) RETURNING *`
+        const studentData = Object.values(student)
+        const result = await conn.query(sql, studentData)
+        conn.release()
+        return result.rows[0]
+      }
     } catch (error) {
       throw new Error(`Error while creating user: ${error}`)
     }

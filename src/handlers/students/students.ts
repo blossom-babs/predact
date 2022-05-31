@@ -21,7 +21,11 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
   try {
-    const student: Student = await store.create(req.body)
+    const student: Student | string = await store.create(req.body)
+    if (typeof student === 'string') {
+      res.status(200).json({ Message: 'School does not have this student data' })
+      return;
+    }
     const jsonToken = jwt.sign(req.body, secret)
     res.status(200).json({ student, jsonToken })
   } catch (error) {
