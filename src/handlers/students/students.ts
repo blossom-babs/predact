@@ -33,9 +33,24 @@ const create = async (req: Request, res: Response) => {
   }
 }
 
+const login = async (req: Request, res: Response) => {
+  try {
+    const user = await store.authenticate(
+      req.body.matricNo,
+      req.body.password
+    )
+    
+    res.status(200).json(user )
+  } catch (error) {
+    console.log(`${error}`)
+    res.status(401)
+  }
+}
+
 const StudentRoutes = (app: Application) => {
   app.get('/students', index);
   app.post('/students', create);
+  app.post('/students/sign-in', login);
 }
 
 export default StudentRoutes;

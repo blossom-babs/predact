@@ -49,4 +49,27 @@ export class StudentStore {
       throw new Error(`Error while creating user: ${error}`)
     }
   }
+
+  async authenticate(matric: string, password: string): Promise<Student | string> {
+    try {
+      const conn = await client.connect()
+      const sql = `SELECT * FROM students WHERE matric_no='${matric}'`
+      const result = await conn.query(sql)
+      let response = ''
+      if (result.rows.length) {
+        const student = result.rows[0]
+        const match = await bcrypt.compare(password + pepper, student.password_digest)
+
+        if (match) {
+          response = student
+        } else {
+          response = 'Incorrect password'
+        }
+      }
+      conn.release()
+      return response || 'User does not exist';
+    } catch (error) {
+      throw new Error(`${error}`)
+    }
+  }
 }
