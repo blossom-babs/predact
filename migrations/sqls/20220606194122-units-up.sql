@@ -8,7 +8,6 @@ CREATE TABLE units(
   firstSemesterApproved varchar(255) NOT NULL,
   firstSemesterGrade varchar(255) NOT NULL,
   firstSemesterNoEval varchar(255) NOT NULL,
-
   secondSemesterCredited varchar(255) NOT NULL,
   secondSemesterEnrolled varchar(255) NOT NULL,
   secondSemesterEval varchar(255) NOT NULL,

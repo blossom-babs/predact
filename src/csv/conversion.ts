@@ -13,7 +13,8 @@ export const fileConverter = async (
   next: NextFunction
 ) => {
   const convertedFile = await csvtojson().fromFile(csvFilePath);
-  await fspromises.writeFile(jsonFilePath, JSON.stringify(convertedFile));
+  const data = convertedFile.slice(0, 15)
+  await fspromises.writeFile(jsonFilePath, JSON.stringify(data));
   res.send(convertedFile);
   next();
 };
