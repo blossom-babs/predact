@@ -1,2 +1,4 @@
-## Prediction system API
+## Pridact
+
+Academic performance prediction system
 

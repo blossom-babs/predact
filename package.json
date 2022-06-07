@@ -1,5 +1,5 @@
 {
-  "name": "zion-api",
+  "name": "pridact",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "prettier": "prettier --write src",
     "format": "npm run lint && npm run prettier",
     "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine",
+    "drop": "db-migrate --env test down",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" "
   },
   "keywords": [],
