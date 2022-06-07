@@ -32,7 +32,6 @@ describe('#test Predictions model', () => {
 
   it('saves general information about the student to the database', async () => {
     const res = await store.saveStudentEvaluation(prediction)
-    console.log(res)
     expect(res).toBeDefined
     expect(res.length).toBe(1)
   })
