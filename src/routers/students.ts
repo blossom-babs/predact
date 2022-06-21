@@ -1,5 +1,5 @@
 import { Request, Response, Application } from "express";
-import { StudentStore, Student } from "../models/auth/auth";
+import { StudentStore, Student } from "../models/auth";
 import jwt from 'jsonwebtoken';
 
 const store = new StudentStore()

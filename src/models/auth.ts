@@ -1,4 +1,4 @@
-import client from '../../database';
+import client from '../database';
 import bcrypt from 'bcrypt';
 
 let pepper: string;

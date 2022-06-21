@@ -1,5 +1,5 @@
 import { Request, Response, Application, NextFunction } from "express";
-import { StudentPrediction, Prediction, Parent, Unit } from "../models/predictions/predictions";
+import { StudentPrediction, Prediction, Parent, Unit } from "../models/predictions";
 import fs from 'fs'
 const store = new StudentPrediction()
 

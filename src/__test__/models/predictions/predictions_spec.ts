@@ -1,4 +1,4 @@
-import { Prediction, StudentPrediction } from "../../../models/predictions/predictions"
+import { Prediction, StudentPrediction } from "../../../models/predictions"
 const store = new StudentPrediction()
 
 xdescribe('#test Predictions model', () => {
