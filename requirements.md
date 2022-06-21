@@ -6,11 +6,15 @@
 >
 > * signifies that this is a protected route
 
-## Interna;
+## Internal
 
 ### GET /api/v1/convert \*
 
 Collects the csv file of the administrators information provided by the school, and converts it to a json file to be processed into the database.
+
+### GET /api/v1/admin-to-db \*
+
+Saves the admin database to the database
 
 ### GET /users
 

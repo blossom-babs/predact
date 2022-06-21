@@ -8,7 +8,8 @@
     "prettier": "prettier --write src",
     "format": "npm run lint && npm run prettier",
     "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine && db-migrate --env test down",
-    "drop": "set NODE_ENV=test && db-migrate --env test down",
+    "drop": "set NODE_ENV=test && db-migrate --env test reset",
+    "clean-db": "db-migrate reset", 
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" "
   },
   "keywords": [],
