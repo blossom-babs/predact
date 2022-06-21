@@ -1,12 +1,12 @@
 import { Prediction, StudentPrediction } from "../../../models/predictions/predictions"
 const store = new StudentPrediction()
 
-describe('#test Predictions model', () => {
+xdescribe('#test Predictions model', () => {
   let prediction: Prediction
 
   beforeEach(() => {
     prediction = {
-      field: "21",
+      field: "22",
       maritalStatus: "1",
       applicationMode: "15",
       applicationOrder: "1",
