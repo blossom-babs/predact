@@ -1,4 +1,4 @@
-import { Prediction, StudentPrediction } from "../../../models/predictions"
+import { Prediction, StudentPrediction } from "../../models/predictions"
 const store = new StudentPrediction()
 
 xdescribe('#test Predictions model', () => {
@@ -32,6 +32,7 @@ xdescribe('#test Predictions model', () => {
 
   it('saves general information about the student to the database', async () => {
     const res = await store.saveStudentEvaluation(prediction)
+  
     expect(res).toBeDefined
     expect(res.length).toBe(1)
   })

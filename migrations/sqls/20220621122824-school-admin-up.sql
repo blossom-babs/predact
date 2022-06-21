@@ -1,6 +1,7 @@
 CREATE TABLE school_admin (
   staff_id varchar(255) NOT NULL,
   password_digest uuid DEFAULT uuid_generate_v4 (),
+  password_custom varchar(255),
   profile_photo varchar(255),
   first_name varchar(255) NOT NULL, 
   last_name varchar(255) NOT NULL,

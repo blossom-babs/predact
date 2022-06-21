@@ -7,9 +7,8 @@
     "lint": "eslint --fix --ext src",
     "prettier": "prettier --write src",
     "format": "npm run lint && npm run prettier",
-    "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine",
-    "drop": "db-migrate --env test down",
-    "drop-db": "db:drop test",
+    "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine && db-migrate --env test down",
+    "drop": "set NODE_ENV=test && db-migrate --env test down",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" "
   },
   "keywords": [],
