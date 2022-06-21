@@ -3,8 +3,8 @@ import csvtojson from 'csvtojson';
 import { promises as fspromises } from 'fs';
 
 
-const csvFilePath = './src/csv/dataset.csv';
-const jsonFilePath = './src/csv/dataset.json';
+const csvFilePath = './src/csv/school_admins.csv';
+const jsonFilePath = './src/csv/school_admins.json';
 
 
 export const fileConverter = async (
@@ -13,14 +13,14 @@ export const fileConverter = async (
   next: NextFunction
 ) => {
   const convertedFile = await csvtojson().fromFile(csvFilePath);
-  const data = convertedFile.slice(0, 15)
+  const data = convertedFile.slice(0, 20)
   await fspromises.writeFile(jsonFilePath, JSON.stringify(data));
   res.send(convertedFile);
   next();
 };
 
 const convertFileRoute = (app: Application) => {
-  app.get('/convert', fileConverter, (req, res) => {
+  app.get('/api/v1/convert', fileConverter, (req, res) => {
     fileConverter;
   });
 
