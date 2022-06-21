@@ -1,5 +1,5 @@
 import express, { Request, Response, Application } from "express";
-import indexRoute from "./handlers";
+import indexRoute from "./routers";
 
 const app: Application = express();
 const port = 8070;
