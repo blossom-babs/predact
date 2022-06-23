@@ -1,7 +1,7 @@
 import { SchoolAdmin, Admin } from "../../models";
 const store = new SchoolAdmin()
 
-fdescribe('test admin model', () => {
+xdescribe('Test Admin Model', () => {
   let admin: Admin
 
   beforeEach(() => {

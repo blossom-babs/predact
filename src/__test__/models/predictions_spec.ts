@@ -1,7 +1,7 @@
 import { Prediction, StudentPrediction } from "../../models/predictions"
 const store = new StudentPrediction()
 
-xdescribe('#test Predictions model', () => {
+xdescribe('#Test Predictions model', () => {
   let prediction: Prediction
 
   beforeEach(() => {

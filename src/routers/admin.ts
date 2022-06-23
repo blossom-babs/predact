@@ -1,5 +1,6 @@
 import { Request, Response, Application } from "express";
 import { SchoolAdmin, Admin } from "../models";
+import nodemailer from 'nodemailer'
 import fs from 'fs'
 const store = new SchoolAdmin()
 
@@ -27,6 +28,7 @@ const adminToDB = async (req: Request, res: Response) => {
           email: person['email'],
           phoneNumber: person['phone number'],
           education: person['highest level of education'],
+          university: 'University Of Lagos'
         }
         const conn = await store.saveSchoolAdmin(admin)
         res.status(201)

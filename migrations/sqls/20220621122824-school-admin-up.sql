@@ -12,5 +12,6 @@ CREATE TABLE school_admin (
   email varchar(255) NOT NULL,
   phone_number varchar(255) NOT NULL,
   education varchar(255) NOT NULL,
+  university varchar(255) NOT NULL,
   PRIMARY KEY(staff_id)
 )

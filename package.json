@@ -7,9 +7,9 @@
     "lint": "eslint --fix --ext src",
     "prettier": "prettier --write src",
     "format": "npm run lint && npm run prettier",
-    "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine && db-migrate --env test down",
-    "drop": "set NODE_ENV=test && db-migrate --env test reset",
-    "clean-db": "db-migrate reset", 
+    "test": "npx tsc && set NODE_ENV=test && db-migrate --env test up && jasmine",
+    "clean-test": "set NODE_ENV=test && db-migrate --env test reset",
+    "clean-dev": "db-migrate reset",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\" "
   },
   "keywords": [],
@@ -24,6 +24,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.7.5",
     "pg": "^8.7.3",
     "supertest": "^6.2.3",
     "typescript": "^4.6.4"
@@ -33,6 +34,7 @@
     "@types/express": "^4.17.13",
     "@types/jasmine": "^4.0.3",
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/nodemailer": "^6.4.4",
     "@types/pg": "^8.6.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
